@@ -4,9 +4,9 @@ import { Text, Button,View ,StyleSheet} from 'react-native';
 
 
 export default function Ded({navigation}){
-  const[toss,SetToss]  = useState('Toss the Coin!');
   var coin = ['Heads🤖','Tails🐗']
-  const[usrc,SetUsrc] = useState('Choose')
+  const[toss,SetToss]  = useState(coin[Math.floor(Math.random() * coin.length)]);
+  const[usrc,SetUsrc] = useState(coin[Math.floor(Math.random() * coin.length)])
   var res = ['Won','Lost']
   var[tosswd,SetTosswd] = useState(res[Math.floor(Math.random() * res.length)]);
 
@@ -19,8 +19,6 @@ export default function Ded({navigation}){
           console.log(toss)
             SetTosswd('Won')
             console.log({toss})
-            
-            
         }else{
             SetTosswd('Lost')
             console.log({toss})
