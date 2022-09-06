@@ -1,47 +1,53 @@
 import React, { useState } from 'react'
 import { Button, Text } from 'react-native-paper'
 import { View,StyleSheet } from 'react-native'
-export default function Bowling () {
-  var scorev = [0,1,2,3,4,5,6,7,8,9,0,0,0,0]
-  int[runs,Setruns] = useState<Int>("");
-  const[balls,setballs] =useState(1);
-  const[Score,SetScore] = useState(0);
-  const[wicket,setWicket]=useState(0);
-  const HitIt=()=>{
-    
-    if(balls<=6)  
-    {Setruns(Math.floor(Math.random() * (6 - 1 + 1)) + 1)
-      console.log("The runs "+runs);
-      if(runs==0 && wicket<=3) 
-      {
-        console.log("Wicket");
-        setWicket(wicket+1);
-        console.log(" ",+wicket)
-        return;
-      }
-      
-        // setWicket(wicket+1);
-        // console.log(" "+wicket);
-        SetScore(Score+runs);
-      console.log("Score score "+Score);
-  }else{
-      return;
-   } 
-    setballs(balls+1);
-    console.log("balls value "+balls);
-    
+export default function Bowling ({navigation,props}) {
+  const[runs,Setruns] = useState(null);
+  const[balls,setballs] =useState(0);
+  const[Score,SetScore] = useState(null);
+  const[wicket,setWicket]=useState(null);
+  const scoregen =(max,min)=>{
+    return Math.floor(Math.random() * (max - min + 1)) + min;
   }
+  
+  const HitIt=()=>{
+    if(wicket<=3 && balls<6)
+    {
+      //runs gets incremented
+      Setruns(scoregen(0,5))
+      if(runs==0)
+      {
+        setballs(balls+1)
+        setWicket(wicket+1)
+      }else{
+        setballs(balls+1)
+        SetScore(Score+runs)
+      }
+    }else{
+      alert("GAME OVER");
+      console.log("Total Score "+Score);
+    }
+  }
+  const chas=()=>{
+    navigation.navigate('Chase',{Score,navigation});
+  }
+  
+  
+  //check if the balls<=6 and the number of wickets are less than 3  if so then throw the ball and score run
+  //if the run is 0 then incrase the wicket  or else add up to the score variable .
+  //
   
   return (
     <View style={styles.Deod}>
       <Text>Batting</Text>
-      <Text>Ball :{balls-1}</Text>
-      <Text>Wicket{wicket}</Text>
-      <Text>Score : {runs}</Text>
-      <Text>Score Score {Score}</Text>
-      <Button title="back" color="#e87a72" onPress={HitIt}>MOMg</Button>
+      <Text>Ball :{balls}</Text>
+      <Text>Wicket : {wicket}</Text>
+      <Text>Runs : {runs}</Text>
+      <Text>Total Score {Score}</Text>
+      <Button title="back" color="#e87a72" onPress={HitIt}>Hit!!🎾</Button>
+      <Button title="Fii" onPress={chas}>LESS MOVE</Button>
     </View>
-  )
+  );
 }
 
 const styles = StyleSheet.create({

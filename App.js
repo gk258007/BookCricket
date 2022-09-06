@@ -1,11 +1,11 @@
 import * as React from 'react';
-import {useState} from 'react'
+import {useState} from 'react';
 import { NavigationContainer } from '@react-navigation/native';
 import { createNativeStackNavigator } from '@react-navigation/native-stack';
 import Ded from './Ded';
 import Strike from './Strike';
 import Veedu from './Veedu';
-
+import Chase from './Chase';
 const Stack = createNativeStackNavigator();
 
 const App = () => {
@@ -19,6 +19,7 @@ const App = () => {
       options={{ title: 'TOSS' }}/>
       <Stack.Screen name="Veedu" component={Veedu} />
       <Stack.Screen name="Strike" component={Strike} /> 
+      <Stack.Screen name="Chase" component={Chase}/>
       </Stack.Navigator>
 </NavigationContainer>
   );

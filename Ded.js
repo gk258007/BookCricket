@@ -6,7 +6,7 @@ import { Text, Button,View ,StyleSheet} from 'react-native';
 export default function Ded({navigation}){
   var coin = ['Heads🤖','Tails🐗']
   const[toss,SetToss]  = useState(coin[Math.floor(Math.random() * coin.length)]);
-  const[usrc,SetUsrc] = useState(coin[Math.floor(Math.random() * coin.length)])
+  const[usrc,SetUsrc] = useState(coin[Math.floor(Math.random() * coin.length)]);
   var res = ['Won','Lost']
   var[tosswd,SetTosswd] = useState(res[Math.floor(Math.random() * res.length)]);
 
@@ -16,7 +16,6 @@ export default function Ded({navigation}){
         if(usrc === toss)
         {
           navigation.navigate('Veedu',{tosswd,navigation});
-          console.log(toss)
             SetTosswd('Won')
             console.log({toss})
         }else{
@@ -29,14 +28,12 @@ export default function Ded({navigation}){
     const Choose = () =>{
         SetUsrc(coin[0])
         console.log("the user chose "+usrc);
-       
     }
     const Headchoice = () =>{
         SetUsrc(coin[1])
     }
     const move = ()=>{
-        
-        
+
     }
   return (
     

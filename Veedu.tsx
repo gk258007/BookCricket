@@ -2,7 +2,7 @@ import React from 'react'
 import { Text} from 'react-native';
 import { StyleSheet,View,Button} from 'react-native';
 
- const Veedu = (props) => {
+ const Veedu = (props,route) => {
     const batting=({}) =>{
        props.navigation.navigate('Strike');
     }
