@@ -6,6 +6,7 @@ export default function Bowling ({navigation,props}) {
   const[balls,setballs] =useState(0);
   const[Score,SetScore] = useState(null);
   const[wicket,setWicket]=useState(null);
+
   const scoregen =(max,min)=>{
     return Math.floor(Math.random() * (max - min + 1)) + min;
   }
@@ -25,11 +26,9 @@ export default function Bowling ({navigation,props}) {
       }
     }else{
       alert("GAME OVER");
+      navigation.navigate('Chase',{Score,navigation});
       console.log("Total Score "+Score);
     }
-  }
-  const chas=()=>{
-    navigation.navigate('Chase',{Score,navigation});
   }
   
   
@@ -45,7 +44,7 @@ export default function Bowling ({navigation,props}) {
       <Text>Runs : {runs}</Text>
       <Text>Total Score {Score}</Text>
       <Button title="back" color="#e87a72" onPress={HitIt}>Hit!!🎾</Button>
-      <Button title="Fii" onPress={chas}>LESS MOVE</Button>
+  
     </View>
   );
 }
