@@ -30,8 +30,6 @@ export default function Bowling ({navigation,props}) {
       console.log("Total Score "+Score);
     }
   }
-  
-  
   //check if the balls<=6 and the number of wickets are less than 3  if so then throw the ball and score run
   //if the run is 0 then incrase the wicket  or else add up to the score variable .
   //
