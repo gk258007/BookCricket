@@ -3,16 +3,22 @@ import { Text} from 'react-native';
 import { StyleSheet,View,Button} from 'react-native';
 
  const Veedu = (props,route) => {
+  const result = props.route.params.tosswd
+  
     const batting=({}) =>{
        props.navigation.navigate('Strike');
     }
+
+
     const redirectback=({}) =>{
       console.log("going back");
       props.navigation.navigate('Home');
     }
+
   return (
    <View style={styles.Deod}>
-     <Text style={styles.setFontSizeOne}>OTHA DEEIIII 🗿{props.route.params.tosswd}</Text>
+    {/* <Text>{player_name}VS{player_name2}</Text> */}
+     <Text style={styles.setFontSizeOne}>OTHA DEEIIII 🗿{result}</Text>
      <Button title="start batting" onPress={batting}></Button>
      <Button title="back" onPress={redirectback}></Button>
      </View>

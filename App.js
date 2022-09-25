@@ -6,7 +6,9 @@ import Ded from './Ded';
 import Strike from './Strike';
 import Veedu from './Veedu';
 import Chase from './Chase';
+import Homepage from './Homepage';
 import Scorr from './Scoreboard';
+// import { Flip } from './Flip';
 const Stack = createNativeStackNavigator();
 
 const App = () => {
@@ -14,11 +16,13 @@ const App = () => {
   return (
   <NavigationContainer>
     <Stack.Navigator>
+    <Stack.Screen name="Lobby" component={Homepage}/>
       <Stack.Screen
       name="Home"
       component={Ded}
       options={{ title: 'TOSS' }}/>
       <Stack.Screen name="Veedu" component={Veedu} />
+      {/* <Stack.Screen name="Flip" component={Flip} /> */}
       <Stack.Screen name="Strike" component={Strike} /> 
       <Stack.Screen name="Chase" component={Chase}/>
       <Stack.Screen name="Scorr" component={Scorr}/>

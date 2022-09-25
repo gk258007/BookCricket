@@ -3,13 +3,17 @@ import React from 'react';
 import { Text, Button,View ,StyleSheet} from 'react-native';
 
 
-export default function Ded({navigation}){
+export default function Ded({route,navigation})
+{
+  const {player_name,player_name2} =  route.params;
+  const names = [player_name,player_name2]
+  const randane = names[Math.floor(Math.random() * names.length)]
   var coin = ['Heads🤖','Tails🐗']
   const[toss,SetToss]  = useState(coin[Math.floor(Math.random() * coin.length)]);
   const[usrc,SetUsrc] = useState(coin[Math.floor(Math.random() * coin.length)]);
   var res = ['Won','Lost']
   var[tosswd,SetTosswd] = useState(res[Math.floor(Math.random() * res.length)]);
-
+  
      const Flip = ({})=>{
         SetToss(coin[Math.floor(Math.random() * coin.length)])
        console.log("the flipped coin"+toss);
@@ -21,9 +25,8 @@ export default function Ded({navigation}){
         }else{
             SetTosswd('Lost')
             console.log({toss})
-            navigation.navigate('Veedu',{tosswd,navigation});
+            navigation.navigate('Veedu',{navigation,tosswd});
         }
-        
     }
     const Choose = () =>{
         SetUsrc(coin[0])
@@ -32,21 +35,18 @@ export default function Ded({navigation}){
     const Headchoice = () =>{
         SetUsrc(coin[1])
     }
-    const move = ()=>{
-
-    }
+  
   return (
-    
       <View style={style.Deod}>
+        <Text>The computer has selected {randane}</Text>
+         <Text>{player_name}vs{player_name2}</Text>
     <Text>"The user Chose  {usrc}</Text>
     <Button  id="choh" title="HEaD" onPress={Choose}></Button> 
     <Button title="TailS" onPress={Headchoice}></Button>
     <Button 
     title='Chose to go ' 
     onPress={Flip}></Button>
-
     </View>
-     
   );
 }
 const style = 
@@ -59,5 +59,9 @@ const style =
         },
         titleText:{
           color: 'red'
+        },
+        Ted:{
+          
+          fontSize:35
         }
     });

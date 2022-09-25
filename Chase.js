@@ -11,11 +11,12 @@ export default function Chase(props,{route}){
     const val = props.route.params.Score+1
     const scoregen =(max,min)=>{
     return Math.floor(Math.random() * (max - min + 1)) + min;
-  
   }
+
   const redirect =() =>{
      navigation.navigate('Scorr',{navigation,Score})
    }
+   
   const HitIt=()=>{
     console.log("Wicket "+wicket)
     
@@ -59,7 +60,6 @@ export default function Chase(props,{route}){
       <Text>Runs : {runs}</Text>
       <Text>Total Score {Score}</Text>
       <Button title="back" color="#e87a72" onPress={HitIt}>Hit!!🎾</Button>
-      <Button title="back" color="#e87a72" onPress={redirect}>Hit!!🎾</Button>
 
       
 
