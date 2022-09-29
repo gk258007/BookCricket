@@ -2,23 +2,42 @@ import React from 'react'
 import { Text} from 'react-native';
 import { StyleSheet,View,Button} from 'react-native';
 
- const Veedu = (props,route) => {
-  const result = props.route.params.tosswd
-  
+ const Veedu = (props,route,navigation) => {
+ const result = props.route.params.tosswd
+ const named = props.route.params.randane;
+ const play = props.route.params.names;
+ const path ="";
     const batting=({}) =>{
-       props.navigation.navigate('Strike');
+       if(result == 'Lost')
+       {
+        for(var i=0;i<play.length;i++)
+        {
+          if(named!=play[i])
+          {
+            const path = play[i]
+            console.log(play[i],"won the toss")
+            props.navigation.navigate('Strike',{navigation,pwo:path});
+          }
+        }
+        
+       }else{
+        props.navigation.navigate('Strike',{navigation,pwo:named});
+        console.log(play,"won the match")
+        console.log("Won")
+       }
+       
     }
-
-
+    
     const redirectback=({}) =>{
       console.log("going back");
       props.navigation.navigate('Home');
     }
 
+
   return (
    <View style={styles.Deod}>
     {/* <Text>{player_name}VS{player_name2}</Text> */}
-     <Text style={styles.setFontSizeOne}>OTHA DEEIIII 🗿{result}</Text>
+     <Text style={styles.setFontSizeOne}>{named} {result} the Toss</Text>
      <Button title="start batting" onPress={batting}></Button>
      <Button title="back" onPress={redirectback}></Button>
      </View>

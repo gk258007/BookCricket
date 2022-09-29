@@ -1,7 +1,9 @@
 import React, { useState } from 'react'
 import { Button, Text } from 'react-native-paper'
-import { View,StyleSheet, Alert } from 'react-native'
+import { View,StyleSheet } from 'react-native'
 import { useNavigation } from '@react-navigation/native';
+import { Alert } from 'react-native';
+
 export default function Chase(props,{route}){
   const navigation = useNavigation();
     const[runs,Setruns] = useState(null);
@@ -10,20 +12,33 @@ export default function Chase(props,{route}){
     const[wicket,setWicket]=useState(0);
     const val = props.route.params.Score+1
     const scoregen =(max,min)=>{
-    return Math.floor(Math.random() * (max - min + 1)) + min;
+    return Math.floor(min + Math.random() * (max - min));
   }
 
   const redirect =() =>{
      navigation.navigate('Scorr',{navigation,Score})
    }
-   
+  
+   const twoalert=()=>{
+    Alert.alert(
+      'Hey There!',
+      'Two button alert dialog',
+      [
+        {text: 'Home', onPress: () => navigation.navigate('Scorr',{navigation,Score})},
+        {text: 'Super over', onPress: () => navigation.navigate('Draw',{navigation}), style: 'cancel'},
+      ],
+      { 
+        cancelable: true 
+      }
+    );
+   }
   const HitIt=()=>{
     console.log("Wicket "+wicket)
     
     if(wicket<=3 && balls<6)
     {
       //runs gets incremented
-      Setruns(scoregen(0,5))
+      Setruns(scoregen(0,6))
       if(runs==0)
       {
         setballs(balls+1)
@@ -36,17 +51,18 @@ export default function Chase(props,{route}){
     }else{
       if(Score >= props.route.params.Score+1)
       {
-        alert("WON!!!!");
-        navigation.navigate('Scorr',{navigation,Score,val})
+        
+        navigation.navigate('Scorr',{navigation,Score,val,res:"WON"})
         console.log("Total Score "+Score);
       }else if(Score == props.route.params.Score)
       {
-        navigation.navigate('Scorr',{navigation,Score,val})
-        alert("TIE");
+
+        console.log("Draw match")
+       navigation.navigate('Scorr',{navigation,Score,val,res:"DRAW"})
       }else{
         console.log("total score "+Score)
-        navigation.navigate('Scorr',{navigation,Score,val})
-        alert("LOST THE MATCH");
+        navigation.navigate('Scorr',{navigation,Score,val,res:"LOST"})
+        
       }
     }
   }
@@ -59,7 +75,9 @@ export default function Chase(props,{route}){
       <Text>Wicket : {wicket}</Text>
       <Text>Runs : {runs}</Text>
       <Text>Total Score {Score}</Text>
+      {/* <Button title="back" color="#e87a72" onPress={twoalert}>Hit!!🎾</Button> */}
       <Button title="back" color="#e87a72" onPress={HitIt}>Hit!!🎾</Button>
+     
 
       
 

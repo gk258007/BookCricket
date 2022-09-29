@@ -19,13 +19,13 @@ export default function Ded({route,navigation})
        console.log("the flipped coin"+toss);
         if(usrc === toss)
         {
-          navigation.navigate('Veedu',{tosswd,navigation});
+          navigation.navigate('Veedu',{tosswd,navigation,randane,names});
             SetTosswd('Won')
             console.log({toss})
         }else{
             SetTosswd('Lost')
             console.log({toss})
-            navigation.navigate('Veedu',{navigation,tosswd});
+            navigation.navigate('Veedu',{navigation,tosswd,randane,names});
         }
     }
     const Choose = () =>{
@@ -40,7 +40,7 @@ export default function Ded({route,navigation})
       <View style={style.Deod}>
         <Text>The computer has selected {randane}</Text>
          <Text>{player_name}vs{player_name2}</Text>
-    <Text>"The user Chose  {usrc}</Text>
+    <Text>"The {randane} Chose  {usrc}</Text>
     <Button  id="choh" title="HEaD" onPress={Choose}></Button> 
     <Button title="TailS" onPress={Headchoice}></Button>
     <Button 

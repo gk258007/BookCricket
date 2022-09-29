@@ -1,21 +1,29 @@
 import React, { useState } from 'react'
 import { Button, Text } from 'react-native-paper'
 import { View,StyleSheet } from 'react-native'
-export default function Bowling ({navigation,props}) {
+import { useNavigation } from '@react-navigation/native';
+
+export default function Bowling ({route}) {
+
+  const navigation = useNavigation();
   const[runs,Setruns] = useState(null);
   const[balls,setballs] =useState(0);
   const[Score,SetScore] = useState(null);
-  const[wicket,setWicket]=useState(null);
+  const[wicket,setWicket]=useState(0);
+  const perso = route.params.pwo;
+
+  
 
   const scoregen =(max,min)=>{
-    return Math.floor(Math.random() * (max - min + 1)) + min;
+    return Math.floor(min + Math.random() * (max - min));
   }
   
   const HitIt=()=>{
+    console.log(perso)
     if(wicket<=3 && balls<6)
     {
       //runs gets incremented
-      Setruns(scoregen(0,5))
+      Setruns(scoregen(0,6))
       if(runs==0)
       {
         setballs(balls+1)
@@ -36,6 +44,7 @@ export default function Bowling ({navigation,props}) {
   
   return (
     <View style={styles.Deod}>
+     <Text>{perso} will Bat now</Text>
       <Text>Batting</Text>
       <Text>Ball :{balls}</Text>
       <Text>Wicket : {wicket}</Text>

@@ -7,9 +7,12 @@ export default function Scoreboard(props) {
 
   const score = props.route.params.Score;
   const val = props.route.params.val;
+  const res = props.route.params.res;
+  const names = props.route.params;
   
   return (
     <View style={styles.Fed}>
+      <Text>{res}</Text>
         <Text>Final Scoreboard:{score} </Text>
         <Text>Target Score was :{val}</Text>
     </View>
