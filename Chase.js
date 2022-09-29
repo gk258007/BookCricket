@@ -11,6 +11,7 @@ export default function Chase(props,{route}){
     const[Score,SetScore] = useState(null);
     const[wicket,setWicket]=useState(0);
     const val = props.route.params.Score+1
+
     const scoregen =(max,min)=>{
     return Math.floor(min + Math.random() * (max - min));
   }
@@ -19,19 +20,7 @@ export default function Chase(props,{route}){
      navigation.navigate('Scorr',{navigation,Score})
    }
   
-   const twoalert=()=>{
-    Alert.alert(
-      'Hey There!',
-      'Two button alert dialog',
-      [
-        {text: 'Home', onPress: () => navigation.navigate('Scorr',{navigation,Score})},
-        {text: 'Super over', onPress: () => navigation.navigate('Draw',{navigation}), style: 'cancel'},
-      ],
-      { 
-        cancelable: true 
-      }
-    );
-   }
+   
   const HitIt=()=>{
     console.log("Wicket "+wicket)
     
@@ -47,6 +36,8 @@ export default function Chase(props,{route}){
       }else{
         setballs(balls+1)
         SetScore(Score+runs)
+        //for testing the Draw functinality
+        //SetScore(val-1);
       }
     }else{
       if(Score >= props.route.params.Score+1)
@@ -56,9 +47,17 @@ export default function Chase(props,{route}){
         console.log("Total Score "+Score);
       }else if(Score == props.route.params.Score)
       {
-
         console.log("Draw match")
-       navigation.navigate('Scorr',{navigation,Score,val,res:"DRAW"})
+        Alert.alert(
+          "Draw Match",
+          "Do you want to end or play a Super Ball",
+          [
+            {text:'End the game ', onPress:() => navigation.navigate('Scorr',{navigation,Score,val,res:"DRAW"})},
+            {text:'Play another game', onPress:() => navigation.navigate('Draw',{navigation})},
+          ],
+          {cancelable: false}
+        )
+       
       }else{
         console.log("total score "+Score)
         navigation.navigate('Scorr',{navigation,Score,val,res:"LOST"})
@@ -77,10 +76,6 @@ export default function Chase(props,{route}){
       <Text>Total Score {Score}</Text>
       {/* <Button title="back" color="#e87a72" onPress={twoalert}>Hit!!🎾</Button> */}
       <Button title="back" color="#e87a72" onPress={HitIt}>Hit!!🎾</Button>
-     
-
-      
-
    </View>
    
   )

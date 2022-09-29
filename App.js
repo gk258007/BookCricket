@@ -8,6 +8,7 @@ import Veedu from './Veedu';
 import Chase from './Chase';
 import Homepage from './Homepage';
 import Scorr from './Scoreboard';
+import Draw from './Draw';
 // import { Flip } from './Flip';
 const Stack = createNativeStackNavigator();
 
@@ -24,6 +25,7 @@ const App = () => {
       <Stack.Screen name="Veedu" component={Veedu} />
       {/* <Stack.Screen name="Flip" component={Flip} /> */}
       <Stack.Screen name="Strike" component={Strike} /> 
+      <Stack.Screen name="Draw" component={Draw} /> 
       <Stack.Screen name="Chase" component={Chase}/>
       <Stack.Screen name="Scorr" component={Scorr}/>
       </Stack.Navigator>
