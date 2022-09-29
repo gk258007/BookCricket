@@ -16,9 +16,7 @@ export default function Chase(props,{route}){
     return Math.floor(min + Math.random() * (max - min));
   }
 
-  const redirect =() =>{
-     navigation.navigate('Scorr',{navigation,Score})
-   }
+ 
   
    
   const HitIt=()=>{
