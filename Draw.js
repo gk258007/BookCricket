@@ -12,8 +12,6 @@ export default function Draw ({route}) {
   const[wicket,setWicket]=useState(0);
   const perso = route.params.pwo;
 
-  
-
   const scoregen =(max,min)=>{
     return Math.floor(min + Math.random() * (max - min));
   }

@@ -11,14 +11,11 @@ export default function Chase(props,{route}){
     const[Score,SetScore] = useState(null);
     const[wicket,setWicket]=useState(0);
     const val = props.route.params.Score+1
-
+    
     const scoregen =(max,min)=>{
     return Math.floor(min + Math.random() * (max - min));
   }
 
- 
-  
-   
   const HitIt=()=>{
     console.log("Wicket "+wicket)
     
