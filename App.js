@@ -9,6 +9,7 @@ import Chase from './Chase';
 import Homepage from './Homepage';
 import Scorr from './Scoreboard';
 import Draw from './Draw';
+import Welcomescreen from './Welcomescreen';
 
 // import { Flip } from './Flip';
 const Stack = createNativeStackNavigator();
@@ -18,6 +19,7 @@ const App = () => {
   return (
   <NavigationContainer>
     <Stack.Navigator>
+    {/* <Stack.Screen  name="start" component={Welcomescreen}/>  */}
     <Stack.Screen name="Lobby" component={Homepage}/> 
       <Stack.Screen
       name="Home"
