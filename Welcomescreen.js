@@ -20,7 +20,7 @@ export default function Welcomescreen({navigation}) {
             <Text style={style.text}>Book Cricket</Text>
             {/* <Image source={image}></Image> */}
           </View>
-          {/* <Button onPress={buttontest}>Less Go</Button> */}
+          <Button onPress={buttontest}>Less Go</Button>
         </View>
         </NativeBaseProvider>
   )
