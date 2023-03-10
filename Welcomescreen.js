@@ -3,13 +3,14 @@ import { Text } from 'react-native-paper'
 import { NativeBaseProvider, View } from 'native-base'
 import { Button } from 'react-native-paper'
 import { StyleSheet } from 'react-native'
-import { useFonts } from 'expo-font';
+
 export default function Welcomescreen({navigation}) {
+  
+ 
   const image = require('./assets/cricket-stadium-background-vector-illustration 1.png')
-  const font = useFonts({
-    'Robus': require('./assets/fonts/Robus-Demo.otf')
-  })
+  
     function buttontest(){
+      
       navigation.navigate('Lobby',{navigation})
     }
 
@@ -20,7 +21,7 @@ export default function Welcomescreen({navigation}) {
             <Text style={style.text}>Book Cricket</Text>
             {/* <Image source={image}></Image> */}
           </View>
-          <Button onPress={buttontest}>Less Go</Button>
+          {/* <Button onPress={buttontest}>Less Go</Button> */}
         </View>
         </NativeBaseProvider>
   )
@@ -49,7 +50,8 @@ const style = StyleSheet.create({
     backgroundColor: "#DBDABD",
   },
   text:{
-    fontFamily:'Robus',
+    color:'white',
+    fontFamily:'RobusDemo',
     fontSize:70,
   }
   
