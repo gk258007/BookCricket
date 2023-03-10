@@ -19,7 +19,11 @@ const App = () => {
   return (
   <NavigationContainer>
     <Stack.Navigator>
-    {/* <Stack.Screen  name="start" component={Welcomescreen}/>  */}
+   <Stack.Screen  name="Welcome" options={{headerStyle:{
+    backgroundColor:'#7FA2D1'
+   },headerTintColor:"#7FA2D1",
+   headerTitleAlign:'center',
+   headerTitleStyle:{color:'black'}}}  component={Welcomescreen}/>  
     <Stack.Screen name="Lobby" component={Homepage}/> 
       <Stack.Screen
       name="Home"
