@@ -1,5 +1,5 @@
 import * as React from 'react';
-import {useState} from 'react';
+import {useCallback,useEffect} from 'react';
 import { NavigationContainer } from '@react-navigation/native';
 import { createNativeStackNavigator } from '@react-navigation/native-stack';
 import Ded from './Ded';
@@ -10,12 +10,34 @@ import Homepage from './Homepage';
 import Scorr from './Scoreboard';
 import Draw from './Draw';
 import Welcomescreen from './Welcomescreen';
+import {useFonts} from 'expo-font';
+import * as SplashScreen from 'expo-splash-screen';
+
+
 
 // import { Flip } from './Flip';
 const Stack = createNativeStackNavigator();
 
 const App = () => {
-  
+  const [fontsLoaded] = useFonts({
+    "Inter-Black": require('./assets/fonts/RobusDemo.otf'),
+    "IBM Plex Mono": require('./assets/fonts/IBMPlexMono-Bold.ttf'),
+   });
+  useEffect(() =>{
+    async function prepare(){
+      await SplashScreen.preventAutoHideAsync();
+    }
+  })
+   const onLayoutRootView = useCallback(async ()=>{
+    if(fontsLoaded){
+      await SplashScreen.hideAsync();
+    }
+   }, [fontsLoaded]);
+   if(!fontsLoaded){
+    return undefined;
+   } else{
+    SplashScreen.preventAutoHideAsync();
+   }
   return (
   <NavigationContainer>
     <Stack.Navigator>
