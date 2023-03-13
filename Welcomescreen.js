@@ -10,7 +10,7 @@ import ShadowView from 'react-native-shadow-view'
 export default function Welcomescreen({navigation}) {
   
   function move(){
-    navigation.navigate('Lobby')
+    navigation.navigate('Team')
   } 
   return (
     <NativeBaseProvider >

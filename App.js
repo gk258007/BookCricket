@@ -39,14 +39,18 @@ const App = () => {
     SplashScreen.preventAutoHideAsync();
    }
   return (
-  <NavigationContainer>
+  <NavigationContainer    >
     <Stack.Navigator>
    <Stack.Screen  name="Welcome" options={{headerStyle:{
     backgroundColor:'#7FA2D1'
    },headerTintColor:"#7FA2D1",
    headerTitleAlign:'center',
    headerTitleStyle:{color:'black'}}}  component={Welcomescreen}/>  
-    <Stack.Screen name="Lobby" component={Homepage}/> 
+    <Stack.Screen name="Team" options={{headerStyle:{
+    backgroundColor:'#7FA2D1'
+   },headerTintColor:"#7FA2D1",
+   headerTitleAlign:'center',
+   headerTitleStyle:{color:'black'}}} component={Homepage}/> 
       <Stack.Screen
       name="Home"
       component={Ded}
