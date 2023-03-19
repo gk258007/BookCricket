@@ -54,7 +54,11 @@ const App = () => {
       <Stack.Screen
       name="Home"
       component={Ded}
-      options={{ title: 'TOSS' }}/>
+      options={{headerStyle:{
+        backgroundColor:'#7FA2D1'
+       },headerTintColor:"#7FA2D1",
+       headerTitleAlign:'center',
+       headerTitleStyle:{color:'black'}}}/>
       <Stack.Screen name="Veedu" component={Veedu} />
       {/* <Stack.Screen name="Flip" component={Flip} /> */}
       <Stack.Screen name="Strike" component={Strike} /> 
