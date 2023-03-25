@@ -3,11 +3,13 @@ import { Text} from 'react-native';
 import { StyleSheet,View,Button} from 'react-native';
 
  const Veedu = (props,route,navigation) => {
- const result = props.route.params.tosswd
+ const result = props.route.params.result;
  const named = props.route.params.randane;
  const play = props.route.params.names;
  const path ="";
+ console.log(result)
     const batting=({}) =>{
+      
        if(result == 'Lost')
        {
         for(var i=0;i<play.length;i++)
