@@ -32,7 +32,7 @@ export default function Draw ({route}) {
       }
     }else{
       alert("GAME OVER");
-      navigation.navigate('Chase',{Score,navigation});
+      navigation.navigate('Chase',{navigation,Score});
       console.log("Total Score "+Score);
     }
   }
@@ -41,7 +41,7 @@ export default function Draw ({route}) {
   //
   
   return (
-    <View style={styles.Deod}>
+    <View style={styles.rect}>
      <Text>{perso} will Bat now</Text>
       <Text>Batting</Text>
       <Text>Ball :{balls}</Text>
@@ -60,6 +60,15 @@ const styles = StyleSheet.create({
     backgroundColor: '#fff',
     alignItems: 'center',
     justifyContent: 'center',
-  }
+  },
+  rect:{
+    alignContent:'center',
+   marginTop:-70,
+    width: '95%',
+    height: '99%',
+    left: 9.99  ,
+    top: 96.23  ,
+    backgroundColor: "#DBDABD",
+  },
 
 });

@@ -22,6 +22,7 @@ const App = () => {
   const [fontsLoaded] = useFonts({
     "Inter-Black": require('./assets/fonts/RobusDemo.otf'),
     "IBM Plex Mono": require('./assets/fonts/IBMPlexMono-Bold.ttf'),
+    "FlipClock":require('./assets/fonts/flipclock.ttf')
    });
   useEffect(() =>{
     async function prepare(){
@@ -61,10 +62,33 @@ const App = () => {
        headerTitleStyle:{color:'black'}}}/>
       <Stack.Screen name="Veedu" component={Veedu} />
       {/* <Stack.Screen name="Flip" component={Flip} /> */}
-      <Stack.Screen name="Strike" component={Strike} /> 
-      <Stack.Screen name="Draw" component={Draw} /> 
-      <Stack.Screen name="Chase" component={Chase}/>
-      <Stack.Screen name="Scorr" component={Scorr}/>
+      <Stack.Screen name="Strike" component={Strike} 
+       options={{headerStyle:{
+        backgroundColor:'#7FA2D1'
+       },headerTintColor:"#7FA2D1",
+       headerTitleAlign:'center',
+       headerTitleStyle:{color:'black'}}}
+      /> 
+      <Stack.Screen name="Draw" component={Draw}
+      options={{headerStyle:{
+        backgroundColor:'#7FA2D1'
+       },headerTintColor:"#7FA2D1",
+       headerTitleAlign:'center',
+       headerTitleStyle:{color:'black'}}}
+      /> 
+      <Stack.Screen name="Chase" component={Chase}
+       options={{headerStyle:{
+        backgroundColor:'#7FA2D1'
+       },headerTintColor:"#7FA2D1",
+       headerTitleAlign:'center',
+       headerTitleStyle:{color:'black'}}}
+      />
+      <Stack.Screen name="Scorr" component={Scorr}
+      options={{headerStyle:{
+        backgroundColor:'#7FA2D1'
+       },headerTintColor:"#7FA2D1",
+       headerTitleAlign:'center',
+       headerTitleStyle:{color:'black'}}}/>
       </Stack.Navigator>
 </NavigationContainer>
   );

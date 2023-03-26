@@ -20,16 +20,18 @@ export default function Ded({route,navigation})
   var[tosswd,SetTosswd] = useState(res[Math.floor(Math.random() * res.length)]);
   const [coinResult, setCoinResult] = useState(null);
   const [coinRotation, setCoinRotation] = useState(new Animated.Value(0));
-
- 
+  const [p2,setP2] = useState('');
+    
+  
      const Flip = ({})=>{
         SetToss(coin[Math.floor(Math.random() * coin.length)])
        console.log("the flipped coin"+toss);
         if(usrc === toss)
         {
+          SetTosswd('Won')
+          console.log({toss})
           navigation.navigate('Veedu',{tosswd,navigation,randane,names});
-            SetTosswd('Won')
-            console.log({toss})
+           
         }else{
             SetTosswd('Lost')
             console.log({toss})
@@ -63,10 +65,20 @@ export default function Ded({route,navigation})
   
       tossAnimation.start(() => {
         const result = Math.random() < 0.5 ? 'heads' : 'tails';
+        const userchoice = 'heads';
         setCoinResult(result);
         setCoinRotation(new Animated.Value(0));
-        
-        navigation.navigate('Veedu',{navigation,result,randane,names});
+        if(userchoice === result)
+        {
+          SetTosswd('Won')
+          console.log({toss})
+          navigation.navigate('Veedu',{tosswd,navigation,randane,names});
+           
+        }else{
+            SetTosswd('Lost')
+            console.log({toss})
+            navigation.navigate('Veedu',{navigation,tosswd,randane,names});
+        }
       });
     };
   
@@ -78,31 +90,64 @@ export default function Ded({route,navigation})
   
   return (
       <View style={style.rect}>
-     <Text style={style.player}>{player_name}</Text> 
      <Image style={style.image}source={require("./assets/VS.png")}/>
+     <View style={style.texxtc}>
      <Text style={style.player2}>{player_name2}</Text>
-    <Text style={style.texxt}>Spin the Coin</Text>
-    <TouchableOpacity onPress={handleTossCoin}>
+     </View>
+     <View style={style.texxted}>
+     <Text style={style.player}>{player_name}</Text> 
+     </View>
+     <Text style={style.texxt}>Spin the Coin</Text>
+    <TouchableOpacity onPress={handleTossCoin} style={style.coin}>
         <Animated.Image
           source={coinResult === 'heads' ? HEADS_IMAGE : TAILS_IMAGE}
           style={{
             alignSelf:'center',
-            width:'39%',
-            height:'50%',
+            width:'60%',
+            height:'60%',
              transform: [{ rotateX: interpolatedRotation }],
           }}
         />
       </TouchableOpacity>
-      {coinResult && (
+      {/* {coinResult && (
         <Text style={{ fontSize: 30, marginTop: -100 }}>
           {coinResult === 'heads' ? 'Heads' : 'Tails'}
         </Text>
-      )}
+      )} */}
+      <View style={style.imagecontainer}>
+        <Image 
+        source={require("./assets/cricketVector.png")}
+        style={style.imagee}
+        >
+        </Image>
+      </View>
     </View>
   );
 }
 const style = 
     StyleSheet.create({
+      texxtc:{
+        width:'30%',
+        height:'10%',
+        top:'-12%',
+        marginLeft:'60%'
+      },
+      imagecontainer:{
+        height:'70%',
+        width:'100%',
+        top:'-10%',
+      },
+      imagee:{
+        alignSelf:'center',
+        height:'80%',
+        width:'80%'
+      },
+      texxted:{
+        top:'-25%',
+        width:'30%',
+        height:'10%',
+        left:'8%'
+      },
         texxt:{
           fontSize:18,
           fontFamily: 'IBM Plex Mono',
@@ -111,6 +156,7 @@ const style =
           top:'25%'
         },
         coin:{
+          top:-45,
           alignSelf:'center',
           width:103,
           height:100
