@@ -13,10 +13,9 @@ export default function Scoreboard({route}) {
   const navigation = useNavigation();
   const score = route.params.Score;
   const val = route.params.val;
-  const res = route.params.res;
   const names = route.params.perso;
   const op = route.params.resms;
-  console.log(op)
+  //console.log.log(op)
 
   function sharebtn(){
     navigation.navigate('Veedu',{navigation});
@@ -65,12 +64,7 @@ export default function Scoreboard({route}) {
   )
 }
 const styles = StyleSheet.create({
-  Fed: {
-    flex: 1,
-    backgroundColor: '#fff',
-    alignItems: 'center',
-    justifyContent: 'center',
-  },
+  
   extrasfiled:{
     position:'absolute',
     top:'64%',
@@ -84,12 +78,6 @@ const styles = StyleSheet.create({
     left:SCREEN_WIDTH * 0.19,
     height:SCREEN_WIDTH * 0.41,
     width:SCREEN_WIDTH * 0.37
-  },
-  texxted:{
-    top:'-3%',
-    width:'30%',
-    height:'10%',
-    left:'10%'
   },
   rect:{
     alignContent:'center',
@@ -117,10 +105,6 @@ const styles = StyleSheet.create({
     height:'100%',
     width:'100%'
   },
-  texxtc:{
-    left:'2%',
-    position:'absolute'
-  },
   image:{
     position:'absolute',
     width:'15%',
@@ -142,12 +126,4 @@ const styles = StyleSheet.create({
           top:'-15%',
           marginLeft:'1%'
         },
-        texxtc:{
-          width:'30%',
-          height:'10%',
-          top:'-12%',
-          marginLeft:'60%'
-        },
-  
-
 })

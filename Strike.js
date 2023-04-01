@@ -21,7 +21,7 @@ export default function Bowling ({route}) {
     {
     if(winer!=perso[i]){
       setOthp(perso[i])
-      console.log("The opponednt",othp)
+      // console.log("The opponednt",othp)
     }else{
       const sum = perso[i]
     }
@@ -34,7 +34,7 @@ export default function Bowling ({route}) {
   }
   
   const HitIt=()=>{
-    console.log(perso)
+    //console.log(perso)
     if(wicket<=3 && balls<6)
     {
       //runs gets incremented
@@ -50,7 +50,7 @@ export default function Bowling ({route}) {
     }else{
       alert("GAME OVER");
       navigation.navigate('Chase',{Score,navigation,perso,othp});
-      console.log("Total Score "+Score);
+      //console.log("Total Score "+Score);
     }
   }
   //check if the balls<=6 and the number of wickets are less than 3  if so then throw the ball and score run

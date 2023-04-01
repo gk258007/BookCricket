@@ -27,7 +27,7 @@ export default function Chase(props,{route}){
   }
 
   const HitIt=()=>{
-    console.log("Wicket "+wicket)
+    //console.log.log("Wicket "+wicket)
     if(wicket<=3 && balls<6)
     {
       //runs gets incremented
@@ -36,7 +36,7 @@ export default function Chase(props,{route}){
       {
         setballs(balls+1)
         setWicket(wicket+1)
-        console.log("Wicket"+wicket)
+        //console.log.log("Wicket"+wicket)
       }else{
         setballs(balls+1)
         SetScore(Score+runs)
@@ -46,13 +46,13 @@ export default function Chase(props,{route}){
     }else{
       if(Score >= props.route.params.Score+1)
       {
-        console.log(oppo)
+        ////console.log.log.log(oppo)
         const resms=`Winer is ${oppo}`
         navigation.navigate('Scorr',{navigation,Score,val,perso,resms})
-        console.log("Total Score "+Score);
+        //console.log.log("Total Score "+Score);
       }else if(Score == props.route.params.Score)
       {
-        console.log("Draw match")
+        //console.log.log("Draw match")
         Alert.alert(
           "Draw Match",
           "Do you want to end or play a Super Ball",
@@ -67,10 +67,10 @@ export default function Chase(props,{route}){
         {
           if(oppo!==perso[i])
         {
-          console.log("winner",perso[i])
+          //console.log.log("winner",perso[i])
           const winner = perso[i]
           const resms = `Winner is ${winner}`
-          console.log("total score "+Score,"Target was",props.route.params.Score+1)
+          //console.log.log("total score "+Score,"Target was",props.route.params.Score+1)
         navigation.navigate('Scorr',{navigation,Score,val,perso,resms})
         }
         }

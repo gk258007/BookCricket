@@ -20,27 +20,26 @@ export default function Ded({route,navigation})
   var[tosswd,SetTosswd] = useState(res[Math.floor(Math.random() * res.length)]);
   const [coinResult, setCoinResult] = useState(null);
   const [coinRotation, setCoinRotation] = useState(new Animated.Value(0));
-  const [p2,setP2] = useState('');
     
   
      const Flip = ({})=>{
         SetToss(coin[Math.floor(Math.random() * coin.length)])
-       console.log("the flipped coin"+toss);
+       //console.log("the flipped coin"+toss);
         if(usrc === toss)
         {
           SetTosswd('Won')
-          console.log({toss})
+          //console.log({toss})
           navigation.navigate('Veedu',{tosswd,navigation,randane,names});
            
         }else{
             SetTosswd('Lost')
-            console.log({toss})
+            //console.log({toss})
             navigation.navigate('Veedu',{navigation,tosswd,randane,names});
         }
     }
     const Choose = () =>{
         SetUsrc(coin[0])
-        console.log("the user chose "+usrc);
+        //console.log("the user chose "+usrc);
     }
     const Headchoice = () =>{
         SetUsrc(coin[1])
@@ -71,12 +70,12 @@ export default function Ded({route,navigation})
         if(userchoice === result)
         {
           SetTosswd('Won')
-          console.log({toss})
+          //console.log({toss})
           navigation.navigate('Veedu',{tosswd,navigation,randane,names});
            
         }else{
             SetTosswd('Lost')
-            console.log({toss})
+            //console.log({toss})
             navigation.navigate('Veedu',{navigation,tosswd,randane,names});
         }
       });

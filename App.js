@@ -19,6 +19,7 @@ import * as SplashScreen from 'expo-splash-screen';
 const Stack = createNativeStackNavigator();
 
 const App = () => {
+  console.log(process.env.NODE_ENV);
   const [fontsLoaded] = useFonts({
     "Inter-Black": require('./assets/fonts/RobusDemo.otf'),
     "IBM Plex Mono": require('./assets/fonts/IBMPlexMono-Bold.ttf'),
@@ -60,7 +61,13 @@ const App = () => {
        },headerTintColor:"#7FA2D1",
        headerTitleAlign:'center',
        headerTitleStyle:{color:'black'}}}/>
-      <Stack.Screen name="Veedu" component={Veedu} />
+      <Stack.Screen name="Veedu" component={Veedu} 
+      options={{headerStyle:{
+        backgroundColor:'#7FA2D1'
+       },headerTintColor:"#7FA2D1",
+       headerTitleAlign:'center',
+       headerTitleStyle:{color:'black'}}}
+      />
       {/* <Stack.Screen name="Flip" component={Flip} /> */}
       <Stack.Screen name="Strike" component={Strike} 
        options={{headerStyle:{

@@ -1,6 +1,7 @@
 import React from 'react'
-import { Text} from 'react-native';
+import { Text, TouchableOpacity} from 'react-native';
 import { StyleSheet,View,Button} from 'react-native';
+import {Image} from 'expo-image';
 
  const Veedu = (props,route,navigation) => {
  const result = props.route.params.tosswd;
@@ -36,16 +37,25 @@ import { StyleSheet,View,Button} from 'react-native';
     
     const redirectback=({}) =>{
       console.log("going back");
-      props.navigation.navigate('Home');
+      props.navigation.navigate('Team');
     }
 
 
   return (
-   <View style={styles.Deod}>
+   <View style={styles.rect}>
     {/* <Text>{player_name}VS{player_name2}</Text> */}
+
      <Text style={styles.setFontSizeOne}>{named} {result} the Toss</Text>
-     <Button title="start batting" onPress={batting}></Button>
-     <Button title="back" onPress={redirectback}></Button>
+     <TouchableOpacity onPress={batting} style={{alignItems:'center',top:90}}>
+     <Text style={{fontFamily:'IBM Plex Mono',fontSize:20,textAlign:'center',top:12}}>Bat</Text>
+     </TouchableOpacity>
+     <TouchableOpacity onPress={redirectback} style={{alignItems:'center',top:100}}>
+     <Text style={{fontFamily:'IBM Plex Mono',fontSize:20,textAlign:'center',top:12}}>BACK</Text>
+     </TouchableOpacity>     
+     <Image 
+        source={require("./assets/cricketVector.png")}
+        style={styles.imagee}
+        />
      </View>
   );
 }
@@ -55,9 +65,26 @@ const styles = StyleSheet.create({
      justifyContent: 'center',
      alignItems: 'center'
    },
+   rect:{
+    alignContent:'center',
+   marginTop:-70,
+    width: '95%',
+    height: '99%',
+    left: 9.99  ,
+    top: 96.23  ,
+    backgroundColor: "#DBDABD",
+  },
    setFontSizeOne: {
-     fontSize: 86 
+     fontSize: 22,
+     fontFamily:'IBM Plex Mono',
+     textAlign:'center'
    },
+   imagee:{
+    top:'22%',
+    alignSelf:'center',
+    height:'60%',
+    width:'60%'
+  },
    Deod: {
       flex: 1,
       backgroundColor: '#fff',
